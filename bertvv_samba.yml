@@ -1,0 +1,7 @@
+---
+- name: use samba role playbook
+  hosts: samba
+  user: ansible
+  become: true
+  roles:
+    - bertvv.samba

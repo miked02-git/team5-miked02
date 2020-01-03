@@ -1,0 +1,7 @@
+---
+- name: use gguy-repo-epel role playbook
+  hosts: mail
+  user: ansible
+  become: yes
+  roles:
+    - geerlingguy.repo-epel

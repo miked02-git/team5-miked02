@@ -1,0 +1,11 @@
+---
+
+- hosts: mail
+  user: ansible
+  become: yes
+
+  tasks:  
+  - name: Remove sendmail
+    yum:
+     pkg: [ 'sendmail' ]
+     state: absent

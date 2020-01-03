@@ -1,0 +1,7 @@
+---
+- name: use ntp role playbook
+  hosts: ntp
+  user: ansible
+  become: true
+  roles:
+    - geerlingguy.ntp

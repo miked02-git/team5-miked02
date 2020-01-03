@@ -1,0 +1,7 @@
+---
+- hosts: prdx-db156
+  name: Use geerlingguy php-mysql role
+  user: ansible
+  become: yes
+  roles:
+    - { role: geerlingguy.php-mysql }

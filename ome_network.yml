@@ -1,0 +1,15 @@
+# Simple network
+ - hosts: new_ip
+   roles:
+   - role: ome.network
+     network_ifaces:
+     - device: ens192
+       ip: 192.168.45.30
+       prefix: 255.255.248.0
+       type: ethernet
+       gateway: 192.168.40.1
+       dns1: 192.168.45.12
+       dns2: 192.168.45.13
+       dns3: 192.168.45.14
+       network_additional_params:
+       ipv6_autoconf: "no"

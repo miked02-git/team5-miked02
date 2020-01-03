@@ -1,0 +1,8 @@
+---
+- name: squirelmail roles playbook
+  hosts: prdx-mail15
+  become: true
+  user: ansible
+  roles:
+    - bertvv.squirrelmail
+

@@ -1,0 +1,17 @@
+---
+- name: use samba role playbook
+  hosts: mail
+  user: ansible
+  become: true
+  gather_facts: yes
+
+  vars:
+    postfix_myhostname: "prdx-mail15"
+    postfix_mydomain: "ziyotek5.local"
+    postfix_myorigin: $mydomain
+    postfix_inet_interfaces: "all"
+    postfix_inet_protocols: "all"
+    postfix_mynetworks: '"192.168.45.0/21" "127.0.0.1/8"'
+    
+  roles:
+    - robertdebock.postfix

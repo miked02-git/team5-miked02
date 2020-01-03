@@ -1,0 +1,7 @@
+---
+- name: use rdebock.dovecot role playbook
+  hosts: mail
+  user: ansible
+  become: yes
+  roles:
+    - robertdebock.dovecot

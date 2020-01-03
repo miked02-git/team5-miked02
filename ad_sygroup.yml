@@ -1,0 +1,7 @@
+---
+- name: use ad-sygroup.mariadb role playbook
+  hosts: db
+  user: ansible
+  become: yes
+  roles:
+    - adfinis-sygroup.mariadb

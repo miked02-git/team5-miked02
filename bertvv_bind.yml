@@ -1,0 +1,7 @@
+---
+- name: use bertvv_bind role playbook
+  hosts: dns
+  user: ansible
+  become: yes
+  roles:
+    - bertvv.bind
