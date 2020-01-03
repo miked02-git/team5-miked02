@@ -1,0 +1,33 @@
+---
+# tasks file for dovecot
+- name: install dovecot
+  package:
+    name: "{{ dovecot_packages }}"
+    state: present
+  notify:
+    - copy sample configuration
+  register: dovecot_install_dovecot
+  until: dovecot_install_dovecot is succeeded
+  retries: 3
+
+- name: flush handlers
+  meta: flush_handlers
+
+- name: configure mail_location
+  lineinfile:
+    path: /etc/dovecot/conf.d/10-mail.conf
+    regexp: "^mail_location"
+    line: "mail_location = {{ dovecot_mailbox_location }}"
+
+- name: configure mail_access_groups
+  lineinfile:
+    path: /etc/dovecot/conf.d/10-mail.conf
+    regexp: "^mail_access_groups"
+    line: "mail_access_groups = {{ dovecot_mail_access_groups }}"
+
+- name: start and enable dovecot
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  with_items: "{{ dovecot_service }}"
